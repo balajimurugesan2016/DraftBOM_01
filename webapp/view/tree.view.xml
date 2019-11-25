@@ -1,0 +1,56 @@
+<mvc:View controllerName="sap.draft.DraftBOMExplosion.controller.tree" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m"
+	xmlns:smarttable="sap.ui.comp.smarttable" xmlns:smartfilterbar="sap.ui.comp.smartfilterbar" xmlns:tree="sap.ui.table">
+	<Shell id="shell">
+		<App id="app">
+			<pages>
+				<Page id="page" title="{i18n>title}">
+					<content>
+						<VBox fitContainer="true">
+								<VBox fitContainer="false" class="sapUiSmallMarginTop sapUiSmallMarginBottom">
+								<Label class="sapUiSmallMarginBegin" text="{i18n>Assembly}"/>
+								<HBox>
+									<Input id="materialInput" required="false" class="sapUiSmallMarginBegin sapUiSmallMarginEnd"/>
+									<Button id="expl" text="Explode"  class="sapUiLargeMarginBegin" press="onPressExplode"/>
+								</HBox>
+							</VBox>
+								<tree:TreeTable id="treeTable"  enableColumnReordering="true">
+								<tree:columns>
+								<tree:Column label="{i18n>MaterialDescription}">
+										<tree:template>
+											<Text text="{Name}"/>
+										</tree:template>
+									</tree:Column>
+								<tree:Column label="{i18n>Assembly}">
+										<tree:template>
+											<Text text="{Id}"/>
+										</tree:template>
+									</tree:Column>
+									<tree:Column label="{i18n>ParentAssembly}" visible="false">
+										<tree:template>
+											<Text text="{ParentNodeID}"/>
+										</tree:template>
+									</tree:Column>
+									<tree:Column label="{i18n>DraftOrNot}">
+										<tree:template>
+											<Text text="{stlan}"/>
+										</tree:template>
+									</tree:Column>
+						
+								</tree:columns>
+						</tree:TreeTable>
+						</VBox> 
+							<!--<smartfilterbar:SmartFilterBar id="smartFilterBar" entityType="Z_C_NODEHIERTP"
+						
+							entitySet="Z_C_NODEHIERTP" persistencyKey="p13n"
+								showFilterConfiguration="false" search="onSearchFilter"/>
+							<smarttable:SmartTable id="smartTable_org_hier" tableType="TreeTable" smartFilterId="smartFilterBar" visible="true"
+								entitySet="Z_C_NODEHIERTP"  header="Draft BOM explosion" initiallyVisibleFields="Id,Name,ParentId"
+								beforeRebindTable="onBeforeRebindTable" enableAutoBinding="false" useVariantManagement="false" showVariantManagement="false"
+								useTablePersonalisation="true"/>-->
+						</content>
+					</Page>
+				</pages>
+			</App>
+		</Shell>
+		
+	</mvc:View>

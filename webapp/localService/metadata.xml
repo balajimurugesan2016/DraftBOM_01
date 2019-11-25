@@ -1,0 +1,141 @@
+
+<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+	xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
+	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+		Uri="./IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='ER9_001')/$value"><edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/></edmx:Reference>
+	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+		Uri="./IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='ER9_001')/$value"><edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="Capabilities"/></edmx:Reference>
+	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+		Uri="./IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='ER9_001')/$value"><edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/></edmx:Reference>
+	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+		Uri="./IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='ER9_001')/$value"><edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="Aggregation"/></edmx:Reference>
+	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+		Uri="./IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='ER9_001')/$value"><edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/></edmx:Reference>
+	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+		Uri="./IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='ER9_001')/$value"><edmx:Include Namespace="Org.OData.Validation.V1" Alias="Validation"/></edmx:Reference>
+	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+		Uri="./IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ANALYTICS',Version='0001',SAP__Origin='ER9_001')/$value"><edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics"/></edmx:Reference>
+	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+		Uri="./IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_MEASURES',Version='0001',SAP__Origin='ER9_001')/$value"><edmx:Include Namespace="Org.OData.Measures.V1" Alias="Measures"/></edmx:Reference>
+	<edmx:DataServices m:DataServiceVersion="2.0">
+		<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="Z_HIERBOM2_SRV" xml:lang="en" sap:schema-version="1">
+			<EntityType Name="I_MaterialStdVHType" sap:label="Material" sap:value-list="true" sap:content-version="1">
+				<Key><PropertyRef Name="Material"/></Key><Property Name="Material" Type="Edm.String" Nullable="false" MaxLength="40" sap:display-format="UpperCase" sap:text="Material_Text"
+					sap:label="Material" sap:quickinfo="Material Number"/><Property Name="Material_Text" Type="Edm.String" MaxLength="40" sap:label="Material Description" sap:creatable="false" sap:updatable="false"/></EntityType>
+			<EntityType Name="Z_C_BOMHIERATPType" sap:label="Bill Of Materials Tree" sap:content-version="1">
+				<Key><PropertyRef Name="Material"/><PropertyRef Name="BillOfMaterial"/><PropertyRef Name="BillOfMaterialCategory"/></Key><Property Name="BillOfMaterial_fc" Type="Edm.Byte" sap:label="Dyn. Field Control" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="BillOfMaterialCategory_fc" Type="Edm.Byte" sap:label="Dyn. Field Control" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="BillOfMaterialVariant_fc" Type="Edm.Byte" sap:label="Dyn. Field Control" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="BillOfMaterialVersion_fc" Type="Edm.Byte" sap:label="Dyn. Field Control" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Material_fc" Type="Edm.Byte" sap:label="Dyn. Field Control" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false"/><Property Name="Material" Type="Edm.String" Nullable="false" MaxLength="40" sap:display-format="UpperCase" sap:field-control="Material_fc"
+					sap:label="Material" sap:quickinfo="Material Number"/><Property Name="BillOfMaterial" Type="Edm.String" Nullable="false" MaxLength="8" sap:display-format="UpperCase"
+					sap:field-control="BillOfMaterial_fc" sap:label="Bill of Material"/><Property Name="BillOfMaterialCategory" Type="Edm.String" Nullable="false" MaxLength="1" sap:display-format="UpperCase"
+					sap:field-control="BillOfMaterialCategory_fc" sap:label="Bill of Material Category" sap:quickinfo="BOM category"/><Property Name="BillOfMaterialVariant" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase"
+					sap:field-control="BillOfMaterialVariant_fc" sap:label="Alternative BOM"/><Property Name="BillOfMaterialVersion" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase"
+					sap:field-control="BillOfMaterialVersion_fc" sap:label="BOM Version"/><NavigationProperty Name="to_bomItems" Relationship="Z_HIERBOM2_SRV.assoc_49D501F29C06F04A082FBC653768DA40"
+					FromRole="FromRole_assoc_49D501F29C06F04A082FBC653768DA40" ToRole="ToRole_assoc_49D501F29C06F04A082FBC653768DA40"/></EntityType>
+			<EntityType Name="Z_C_BOMITEMTPType" sap:label="Bill Of Materials Items" sap:content-version="1">
+				<Key><PropertyRef Name="BillOfMaterialItemUUID"/></Key><Property Name="BillOfMaterialComponent_fc" Type="Edm.Byte" sap:label="Dyn. Field Control" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="BillOfMaterialItemUUID" Type="Edm.Guid" Nullable="false" sap:label="ID for Item Change Status"
+					sap:quickinfo="Global identification of an item's change status" sap:creatable="false" sap:updatable="false"/><Property Name="InheritedNodeNumberForBOMItem" Type="Edm.String" MaxLength="8" sap:display-format="NonNegative"
+					sap:label="Inherited Item Node Number" sap:quickinfo="Inherited node number of BOM item" sap:creatable="false" sap:updatable="false"/><Property Name="Material" Type="Edm.String" MaxLength="40" sap:display-format="UpperCase" sap:label="Material"
+					sap:quickinfo="Material Number" sap:creatable="false" sap:updatable="false"/><Property Name="BillOfMaterial" Type="Edm.String" MaxLength="8" sap:display-format="UpperCase" sap:label="Bill of Material"
+					sap:creatable="false" sap:updatable="false"/><Property Name="parentMaterial" Type="Edm.String" MaxLength="255" sap:label="Text" sap:quickinfo="Text, 255 Characters"/><Property Name="BillOfMaterialCategory" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Bill of Material Category"
+					sap:quickinfo="BOM category" sap:creatable="false" sap:updatable="false"/><Property Name="BillOfMaterialVariant" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Alternative BOM"
+					sap:creatable="false" sap:updatable="false"/><Property Name="BillOfMaterialVersion" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="BOM Version"/><Property Name="HeaderChangeDocument" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Change Number"/><Property Name="Plant" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Plant" sap:creatable="false"
+					sap:updatable="false"/><Property Name="BillOfMaterialComponent" Type="Edm.String" MaxLength="40" sap:display-format="UpperCase"
+					sap:field-control="BillOfMaterialComponent_fc" sap:label="Component" sap:quickinfo="BOM component" sap:value-list="standard"/><Property Name="DrillState" Type="Edm.String" MaxLength="255" sap:label="Text" sap:quickinfo="Text, 255 Characters" sap:sortable="false"
+					sap:filterable="false"/><Property Name="HierarchyLevel" Type="Edm.String" MaxLength="255" sap:label="Text" sap:quickinfo="Text, 255 Characters"/></EntityType>
+			<EntityType Name="Z_C_NODEHIERTPType" sap:label="Hierachy Test" sap:content-version="1">
+				<Key><PropertyRef Name="Id"/></Key><Property Name="Id" Type="Edm.String" Nullable="false" MaxLength="255" sap:hierarchy-node-for="Id" sap:label="Material"
+					sap:quickinfo="Text, 255 Characters"/><Property Name="Name" Type="Edm.String" MaxLength="255" sap:label="materialDescription" sap:quickinfo="Text, 255 Characters"/><Property Name="ParentId" Type="Edm.String" MaxLength="255" sap:hierarchy-parent-node-for="Id" sap:label="ParentMaterial"
+					sap:quickinfo="Text, 255 Characters"/><Property Name="TreeLevel" Type="Edm.String" MaxLength="255" sap:hierarchy-level-for="Id" sap:label="Treelevel"
+					sap:quickinfo="Text, 255 Characters"/><Property Name="DrilldownState" Type="Edm.String" MaxLength="255" sap:hierarchy-drill-state-for="Id" sap:label="DrillDownState"
+					sap:quickinfo="Text, 255 Characters"/><Property Name="stlan" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="BOM Usage"/></EntityType>
+			<Association Name="assoc_49D501F29C06F04A082FBC653768DA40" sap:content-version="1"><End Type="Z_HIERBOM2_SRV.Z_C_BOMHIERATPType" Multiplicity="1" Role="FromRole_assoc_49D501F29C06F04A082FBC653768DA40"/><End Type="Z_HIERBOM2_SRV.Z_C_BOMITEMTPType" Multiplicity="*" Role="ToRole_assoc_49D501F29C06F04A082FBC653768DA40"/></Association>
+			<EntityContainer Name="Z_HIERBOM2_SRV_Entities" m:IsDefaultEntityContainer="true" sap:message-scope-supported="true"
+				sap:supported-formats="atom json xlsx"><EntitySet Name="I_MaterialStdVH" EntityType="Z_HIERBOM2_SRV.I_MaterialStdVHType" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:searchable="true" sap:content-version="1"/><EntitySet Name="Z_C_BOMHIERATP" EntityType="Z_HIERBOM2_SRV.Z_C_BOMHIERATPType" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:content-version="1"/><EntitySet Name="Z_C_BOMITEMTP" EntityType="Z_HIERBOM2_SRV.Z_C_BOMITEMTPType" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:content-version="1"/><EntitySet Name="Z_C_NODEHIERTP" EntityType="Z_HIERBOM2_SRV.Z_C_NODEHIERTPType" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:content-version="1"/>
+				<AssociationSet Name="assoc_49D501F29C06F04A082FBC653768DA40" Association="Z_HIERBOM2_SRV.assoc_49D501F29C06F04A082FBC653768DA40"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="Z_C_BOMHIERATP" Role="FromRole_assoc_49D501F29C06F04A082FBC653768DA40"/><End EntitySet="Z_C_BOMITEMTP" Role="ToRole_assoc_49D501F29C06F04A082FBC653768DA40"/></AssociationSet>
+			</EntityContainer>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="Z_HIERBOM2_SRV.Z_C_BOMITEMTPType/BillOfMaterialComponent">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Material"/><PropertyValue Property="CollectionPath" String="I_MaterialStdVH"/><PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="BillOfMaterialComponent"/><PropertyValue Property="ValueListProperty" String="Material"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Material_Text"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="Z_HIERBOM2_SRV.Z_HIERBOM2_SRV_Entities"><Annotation Term="Common.ApplyMultiUnitBehaviorForSortingAndFiltering" Bool="true"/>
+				<Annotation Term="Aggregation.ApplySupported">
+					<Record>
+						<PropertyValue Property="Transformations">
+							<Collection>
+								<String>aggregate</String>
+								<String>groupby</String>
+								<String>filter</String>
+							</Collection>
+						</PropertyValue><PropertyValue Property="Rollup" EnumMember="None"/></Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="Z_HIERBOM2_SRV.Z_HIERBOM2_SRV_Entities/Z_C_BOMHIERATP">
+				<Annotation Term="Capabilities.FilterRestrictions">
+					<Record>
+						<PropertyValue Property="NonFilterableProperties">
+							<Collection>
+								<PropertyPath>BillOfMaterial_fc</PropertyPath>
+								<PropertyPath>BillOfMaterialCategory_fc</PropertyPath>
+								<PropertyPath>BillOfMaterialVariant_fc</PropertyPath>
+								<PropertyPath>BillOfMaterialVersion_fc</PropertyPath>
+								<PropertyPath>Material_fc</PropertyPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="Capabilities.SortRestrictions">
+					<Record>
+						<PropertyValue Property="NonSortableProperties">
+							<Collection>
+								<PropertyPath>BillOfMaterial_fc</PropertyPath>
+								<PropertyPath>BillOfMaterialCategory_fc</PropertyPath>
+								<PropertyPath>BillOfMaterialVariant_fc</PropertyPath>
+								<PropertyPath>BillOfMaterialVersion_fc</PropertyPath>
+								<PropertyPath>Material_fc</PropertyPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="Z_HIERBOM2_SRV.Z_HIERBOM2_SRV_Entities/Z_C_BOMITEMTP">
+				<Annotation Term="Capabilities.FilterRestrictions">
+					<Record>
+						<PropertyValue Property="NonFilterableProperties">
+							<Collection>
+								<PropertyPath>BillOfMaterialComponent_fc</PropertyPath>
+								<PropertyPath>DrillState</PropertyPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="Capabilities.SortRestrictions">
+					<Record>
+						<PropertyValue Property="NonSortableProperties">
+							<Collection>
+								<PropertyPath>BillOfMaterialComponent_fc</PropertyPath>
+								<PropertyPath>DrillState</PropertyPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="self" href="./sap/Z_HIERBOM2_SRV/$metadata"/><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version" href="./sap/Z_HIERBOM2_SRV/$metadata"/></Schema>
+	</edmx:DataServices>
+</edmx:Edmx>
