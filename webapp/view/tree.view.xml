@@ -6,13 +6,38 @@
 				<Page id="page" title="{i18n>title}">
 					<content>
 						<VBox fitContainer="true">
+							<HBox>
 								<VBox fitContainer="false" class="sapUiSmallMarginTop sapUiSmallMarginBottom">
 								<Label class="sapUiSmallMarginBegin" text="{i18n>Assembly}"/>
 								<HBox>
 									<Input id="materialInput" required="false" class="sapUiSmallMarginBegin sapUiSmallMarginEnd"/>
-									<Button id="expl" text="Explode"  class="sapUiLargeMarginBegin" press="onPressExplode"/>
 								</HBox>
-							</VBox>
+								</VBox>
+					
+								<VBox fitContainer="false" class="sapUiSmallMarginTop sapUiSmallMarginBottom">
+								<Label class="sapUiMediumMarginBegin" text="{i18n>SalesOrder}"/>
+								<HBox>
+									<Input id="salesOrderInput" required="false" class="sapUiMediumMarginBegin sapUiSmallMarginEnd"/>
+								</HBox>
+								</VBox>
+							</HBox>
+							<HBox>
+								<VBox fitContainer="false" class="sapUiSmallMarginTop sapUiSmallMarginBottom">
+								<Label class="sapUiSmallMarginBegin" text="{i18n>SalesOrderItem}"/>
+								<HBox>
+									<Input id="salesOrderItemInput" required="false" class="sapUiSmallMarginBegin sapUiSmallMarginEnd"/>
+								</HBox>
+								</VBox>
+					
+								<VBox fitContainer="false" class="sapUiSmallMarginTop sapUiSmallMarginBottom">
+								<Label class="sapUiMediumMarginBegin" text="{i18n>Quantity}"/>
+								<HBox>
+									<Input id="requiredQuantityInput" required="false" class="sapUiMediumMarginBegin sapUiSmallMarginEnd"/>
+									<Button id="expl1" text="Explode"  class="sapUiLargeMarginBegin" press="onPressExplode"/>
+								</HBox>
+								</VBox>
+							</HBox>
+							
 								<tree:TreeTable id="treeTable"  enableColumnReordering="true">
 								<tree:columns>
 								<tree:Column label="{i18n>MaterialDescription}">

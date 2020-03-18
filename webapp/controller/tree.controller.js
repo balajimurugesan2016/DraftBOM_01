@@ -13,7 +13,12 @@ sap.ui.define([
 
 		},
 		onPressExplode: function (oEvent) {
-			var sValue = this.getView().byId("materialInput").getValue();
+			var sMaterialValue = this.getView().byId("materialInput").getValue();
+			var sSalesOrderValue = this.getView().byId("salesOrderInput").getValue();
+			var sSalesOrderItemValue = this.getView().byId("salesOrderItemInput").getValue();
+			var sRequiredQuantityValue = this.getView().byId("requiredQuantityInput").getValue();
+			var sValue = sMaterialValue + "/" + sSalesOrderValue + "/" + sSalesOrderItemValue + "/" + sRequiredQuantityValue ;
+		
 			var oFilter = new Filter({
 				path: "Id",
 				operator: FilterOperator.EQ,
@@ -28,7 +33,7 @@ sap.ui.define([
 					numberOfExpandedLevels: 0
 				}
 			});
-
+	
 		}
 	});
 });
