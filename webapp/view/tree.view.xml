@@ -9,43 +9,32 @@
 							<HBox>
 								<VBox fitContainer="false" class="sapUiSmallMarginTop sapUiSmallMarginBottom">
 								<Label class="sapUiSmallMarginBegin" text="{i18n>Assembly}"/>
-								<HBox>
 									<Input id="materialInput" required="false" class="sapUiSmallMarginBegin sapUiSmallMarginEnd"/>
-								</HBox>
 								</VBox>
 					
 								<VBox fitContainer="false" class="sapUiSmallMarginTop sapUiSmallMarginBottom">
 								<Label class="sapUiMediumMarginBegin" text="{i18n>SalesOrder}"/>
-								<HBox>
 									<Input id="salesOrderInput" required="false" class="sapUiMediumMarginBegin sapUiSmallMarginEnd"/>
-								</HBox>
+								</VBox>
+								
+								<VBox fitContainer="false" class="sapUiSmallMarginTop sapUiSmallMarginBottom">
+								<Label class="sapUiLargeMarginBegin" text="{i18n>SalesOrderItem}"/>
+									<Input id="salesOrderItemInput" required="false" class="sapUiLargeMarginBegin sapUiSmallMarginEnd"/>
 								</VBox>
 							</HBox>
 							<HBox>
 								<VBox fitContainer="false" class="sapUiSmallMarginTop sapUiSmallMarginBottom">
-								<Label class="sapUiSmallMarginBegin" text="{i18n>SalesOrderItem}"/>
+								<Label class="sapUiSmallMarginBegin" text="{i18n>Quantity}"/>
 								<HBox>
-									<Input id="salesOrderItemInput" required="false" class="sapUiSmallMarginBegin sapUiSmallMarginEnd"/>
-								</HBox>
-								</VBox>
-					
-								<VBox fitContainer="false" class="sapUiSmallMarginTop sapUiSmallMarginBottom">
-								<Label class="sapUiMediumMarginBegin" text="{i18n>Quantity}"/>
-								<HBox>
-									<Input id="requiredQuantityInput" required="false" class="sapUiMediumMarginBegin sapUiSmallMarginEnd"/>
-									<Button id="expl1" text="Explode"  class="sapUiLargeMarginBegin" press="onPressExplode"/>
+									<Input id="requiredQuantityInput" required="false" class="sapUiSmallMarginBegin sapUiSmallMarginEnd"/>
+									<Button id="expl1" text="{i18n>Explode}"  class="sapUiMediumMarginBegin" press="onPressExplode"/>
 								</HBox>
 								</VBox>
 							</HBox>
 							
 							<tree:TreeTable id="treeTable" visibleRowCount="15" enableColumnReordering="true">
 							<tree:columns>
-								<tree:Column label="{i18n>MaterialDescription}">
-									<tree:template>
-										<Text text="{Name}"/>
-									</tree:template>
-								</tree:Column>
-								<tree:Column label="{i18n>Assembly}">
+								<tree:Column label="{i18n>ID}" visible="false">
 									<tree:template>
 										<Text text="{Id}"/>
 									</tree:template>
@@ -55,7 +44,22 @@
 										<Text text="{ParentNodeID}"/>
 									</tree:template>
 								</tree:Column>
-								<tree:Column label="{i18n>Quantity}">
+								<tree:Column label="{i18n>Material}">
+									<tree:template>
+										<Text text="{matnr}"/>
+									</tree:template>
+								</tree:Column>
+								<tree:Column label="{i18n>BOMType}">
+									<tree:template>
+										<Text text="{stlty}"/>
+									</tree:template>
+								</tree:Column>
+								<tree:Column label="{i18n>FixedQuantity}">
+									<tree:template>
+										<Text text="{FixQuantity}"/>
+									</tree:template>
+								</tree:Column>
+								<tree:Column label="{i18n>RequiredQuantity}">
 									<tree:template>
 										<Text text="{Quantity}"/>
 									</tree:template>
@@ -65,7 +69,7 @@
 										<Text text="{Uom}"/>
 									</tree:template>
 								</tree:Column>
-								<tree:Column label="{i18n>DraftOrNot}">
+								<tree:Column label="{i18n>DraftOrNot}"  visible="false">
 									<tree:template>
 										<ObjectStatus class="sapUiSmallMarginBottom"  icon="{Icon}" />
 									</tree:template>
