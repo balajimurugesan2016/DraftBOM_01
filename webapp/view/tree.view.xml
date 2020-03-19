@@ -38,30 +38,39 @@
 								</VBox>
 							</HBox>
 							
-								<tree:TreeTable id="treeTable"  enableColumnReordering="true">
-								<tree:columns>
+							<tree:TreeTable id="treeTable" visibleRowCount="15" enableColumnReordering="true">
+							<tree:columns>
 								<tree:Column label="{i18n>MaterialDescription}">
-										<tree:template>
-											<Text text="{Name}"/>
-										</tree:template>
-									</tree:Column>
+									<tree:template>
+										<Text text="{Name}"/>
+									</tree:template>
+								</tree:Column>
 								<tree:Column label="{i18n>Assembly}">
-										<tree:template>
-											<Text text="{Id}"/>
-										</tree:template>
-									</tree:Column>
-									<tree:Column label="{i18n>ParentAssembly}" visible="false">
-										<tree:template>
-											<Text text="{ParentNodeID}"/>
-										</tree:template>
-									</tree:Column>
-									<tree:Column label="{i18n>DraftOrNot}">
-										<tree:template>
-											<Text text="{stlan}"/>
-										</tree:template>
-									</tree:Column>
-						
-								</tree:columns>
+									<tree:template>
+										<Text text="{Id}"/>
+									</tree:template>
+								</tree:Column>
+								<tree:Column label="{i18n>ParentAssembly}" visible="false">
+									<tree:template>
+										<Text text="{ParentNodeID}"/>
+									</tree:template>
+								</tree:Column>
+								<tree:Column label="{i18n>Quantity}">
+									<tree:template>
+										<Text text="{Quantity}"/>
+									</tree:template>
+								</tree:Column>
+								<tree:Column label="{i18n>UnitOfMeasure}">
+									<tree:template>
+										<Text text="{Uom}"/>
+									</tree:template>
+								</tree:Column>
+								<tree:Column label="{i18n>DraftOrNot}">
+									<tree:template>
+										<ObjectStatus class="sapUiSmallMarginBottom"  icon="{Icon}" />
+									</tree:template>
+								</tree:Column>
+							</tree:columns>
 						</tree:TreeTable>
 						</VBox> 
 							<!--<smartfilterbar:SmartFilterBar id="smartFilterBar" entityType="Z_C_NODEHIERTP"
