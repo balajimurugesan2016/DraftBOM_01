@@ -73,6 +73,8 @@
 							</tree:columns>
 						</tree:TreeTable>
 						</VBox> 
+						
+						<!-- my dear marthanda-->
 							<!--<smartfilterbar:SmartFilterBar id="smartFilterBar" entityType="Z_C_NODEHIERTP"
 						
 							entitySet="Z_C_NODEHIERTP" persistencyKey="p13n"
