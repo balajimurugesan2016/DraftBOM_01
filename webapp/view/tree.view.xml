@@ -8,7 +8,7 @@
 						<VBox fitContainer="true">
 							<HBox>
 								<VBox fitContainer="false" class="sapUiSmallMarginTop sapUiSmallMarginBottom">
-								<Label class="sapUiSmallMarginBegin" text="{i18n>Assembly}"/>
+								<Label class="sapUiSmallMarginBegin" text="{i18n>Product}"/>
 									<Input id="materialInput" required="false" class="sapUiSmallMarginBegin sapUiSmallMarginEnd"/>
 								</VBox>
 					
@@ -69,7 +69,7 @@
 										<Text text="{Uom}"/>
 									</tree:template>
 								</tree:Column>
-								<tree:Column label="{i18n>DraftOrNot}"  visible="false">
+								<tree:Column label="{i18n>DraftOrNot}">
 									<tree:template>
 										<ObjectStatus class="sapUiSmallMarginBottom"  icon="{Icon}" />
 									</tree:template>
